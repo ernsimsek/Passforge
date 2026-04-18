@@ -32,7 +32,6 @@ For high-value accounts, prefer a hardware key or a trusted password manager whe
 - [React](https://react.dev/) 19
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/) 4
-- Wordlist: [`@scure/bip39`](https://github.com/paulmillr/scure-bip39)
 
 ---
 
