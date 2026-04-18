@@ -58,16 +58,16 @@ npm run lint    # ESLint
 
 ```
 src/
-├── app/                 # layout, global styles, home page
+├── app/                
 ├── components/
-│   └── KeyForgeApp.tsx  # main UI and interactions
+│   └── KeyForgeApp.tsx  
 └── lib/
-    ├── char-pools.ts           # character sets
-    ├── generate-password.ts    # password generation
-    ├── generate-passphrase.ts  # passphrase generation
-    ├── password-entropy.ts     # entropy approximation
-    ├── pwned-check.ts          # HIBP range lookup
-    └── secure-random.ts        # secure random integers
+    ├── char-pools.ts          
+    ├── generate-password.ts   
+    ├── generate-passphrase.ts  
+    ├── password-entropy.ts    
+    ├── pwned-check.ts         
+    └── secure-random.ts       
 ```
 <img width="1462" height="982" alt="Ekran görüntüsü 2026-04-18 233810" src="https://github.com/user-attachments/assets/dccd9365-b702-4699-9775-d5832c0fcd29" />
 
