@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Passforge (KeyForge)
 
-## Getting Started
+A modern password and passphrase generator that runs in the browser. Generation is entirely client-side; secrets are never sent to this app’s server.
 
-First, run the development server:
+---
+
+## Features
+
+| | |
+| --- | --- |
+| **Password mode** | Length, upper/lowercase, digits, symbols, and optional exclusion of ambiguous characters (`0`, `O`, `l`, `I`, etc.) |
+| **Passphrase** | BIP39 English wordlist; word count, separator (space, hyphen, dot), optional capitalization |
+| **Entropy** | Approximate strength in bits with a plain-language label |
+| **Have I Been Pwned** | Optional breach check: only the first 5 hex characters of the SHA-1 hash are sent to the API ([k-anonymity](https://www.troyhunt.com/ive-just-launched-pwned-passwords-version-2/)) |
+| **UI** | Dark / light theme, copy to clipboard, responsive layout |
+
+---
+
+## Security & privacy
+
+- Randomness: `crypto.getRandomValues` plus **rejection sampling** to avoid modulo bias (`randomIntBelow`).
+- Generated passwords and passphrases are **not persisted by this application’s server**; they live in memory until you leave or refresh the page (browser-dependent).
+- With Pwned checking enabled, the **full password still never leaves your device**; only the prefix required by HIBP’s range API is transmitted.
+
+For high-value accounts, prefer a hardware key or a trusted password manager when possible; this tool is for fast, transparent generation.
+
+---
+
+## Tech stack
+
+- [Next.js](https://nextjs.org/) 16 (App Router)
+- [React](https://react.dev/) 19
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) 4
+- Wordlist: [`@scure/bip39`](https://github.com/paulmillr/scure-bip39)
+
+---
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Other commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm run start   # run the production server
+npm run lint    # ESLint
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                 # layout, global styles, home page
+├── components/
+│   └── KeyForgeApp.tsx  # main UI and interactions
+└── lib/
+    ├── char-pools.ts           # character sets
+    ├── generate-password.ts    # password generation
+    ├── generate-passphrase.ts  # passphrase generation
+    ├── password-entropy.ts     # entropy approximation
+    ├── pwned-check.ts          # HIBP range lookup
+    └── secure-random.ts        # secure random integers
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See the [Next.js deployment guide](https://nextjs.org/docs/app/building-your-application/deploying)—for example host the output of `npm run build` on [Vercel](https://vercel.com/).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## License
+
+If the repository has no `LICENSE` file, add one that matches how you want others to use the project.

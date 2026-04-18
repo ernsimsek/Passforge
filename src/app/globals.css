@@ -1,8 +1,121 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* core palette */
+  --background: #050506;
+  --foreground: #f4f4f5;
+  --kf-accent: #d4ff4d;
+  --kf-accent-fg: #d4ff4d;
+  --kf-accent-dim: rgba(212, 255, 77, 0.12);
+  --kf-violet: #c7b5ff;
+  --kf-surface: rgba(12, 12, 14, 0.72);
+  --kf-border: rgba(255, 255, 255, 0.06);
+  --kf-glow: rgba(212, 255, 77, 0.35);
+
+  /* surfaces */
+  --kf-bg: #050506;
+  --kf-panel: rgba(9, 9, 11, 0.40);
+  --kf-panel-inner: rgba(9, 9, 11, 0.80);
+  --kf-toast-bg: rgba(9, 9, 11, 0.95);
+
+  /* overlays */
+  --kf-overlay-2: rgba(255, 255, 255, 0.02);
+  --kf-overlay-3: rgba(255, 255, 255, 0.03);
+  --kf-overlay-4: rgba(255, 255, 255, 0.04);
+  --kf-overlay-6: rgba(255, 255, 255, 0.06);
+  --kf-overlay-12: rgba(255, 255, 255, 0.12);
+
+  /* borders */
+  --kf-border-sm: rgba(255, 255, 255, 0.06);
+  --kf-border-md: rgba(255, 255, 255, 0.08);
+  --kf-border-lg: rgba(255, 255, 255, 0.10);
+  --kf-border-hover: rgba(255, 255, 255, 0.14);
+  --kf-border-xl: rgba(255, 255, 255, 0.20);
+  --kf-border-corner: rgba(255, 255, 255, 0.15);
+  --kf-ring-sm: rgba(255, 255, 255, 0.04);
+
+  /* typography */
+  --kf-fg: #f4f4f5;
+  --kf-fg-bright: #ffffff;
+  --kf-fg-high: #fafafa;
+  --kf-fg-primary: #e4e4e7;
+  --kf-fg-kbd: #d4d4d8;
+  --kf-fg-secondary: #a1a1aa;
+  --kf-fg-muted: #71717a;
+  --kf-fg-dim: #52525b;
+  --kf-success-fg: #bef264;
+
+  /* strength bars */
+  --kf-bar-track: #18181b;
+  --kf-bar-inactive: rgba(39, 39, 42, 0.80);
+
+  /* ambient orbs */
+  --kf-orb1: rgba(212, 255, 77, 0.06);
+  --kf-orb2: rgba(139, 92, 246, 0.07);
+
+  /* mode-toggle pill */
+  --kf-pill-from: rgba(255, 255, 255, 0.12);
+  --kf-pill-to: rgba(255, 255, 255, 0.04);
+
+  /* vertical accent line */
+  --kf-vline: rgba(255, 255, 255, 0.12);
+
+  /* grid */
+  --kf-grid-line: rgba(255, 255, 255, 0.038);
+}
+
+[data-theme="light"] {
+  --background: #f0f0f5;
+  --foreground: #18181b;
+  --kf-accent: #d4ff4d;
+  --kf-accent-fg: #3d6c00;
+  --kf-accent-dim: rgba(212, 255, 77, 0.22);
+  --kf-violet: #7c3aed;
+  --kf-surface: rgba(255, 255, 255, 0.85);
+  --kf-border: rgba(0, 0, 0, 0.07);
+  --kf-glow: rgba(61, 108, 0, 0.30);
+
+  --kf-bg: #f0f0f5;
+  --kf-panel: rgba(255, 255, 255, 0.55);
+  --kf-panel-inner: rgba(255, 255, 255, 0.92);
+  --kf-toast-bg: rgba(255, 255, 255, 0.97);
+
+  --kf-overlay-2: rgba(0, 0, 0, 0.02);
+  --kf-overlay-3: rgba(0, 0, 0, 0.03);
+  --kf-overlay-4: rgba(0, 0, 0, 0.04);
+  --kf-overlay-6: rgba(0, 0, 0, 0.06);
+  --kf-overlay-12: rgba(0, 0, 0, 0.08);
+
+  --kf-border-sm: rgba(0, 0, 0, 0.07);
+  --kf-border-md: rgba(0, 0, 0, 0.09);
+  --kf-border-lg: rgba(0, 0, 0, 0.11);
+  --kf-border-hover: rgba(0, 0, 0, 0.16);
+  --kf-border-xl: rgba(0, 0, 0, 0.20);
+  --kf-border-corner: rgba(0, 0, 0, 0.12);
+  --kf-ring-sm: rgba(0, 0, 0, 0.04);
+
+  --kf-fg: #27272a;
+  --kf-fg-bright: #09090b;
+  --kf-fg-high: #18181b;
+  --kf-fg-primary: #3f3f46;
+  --kf-fg-kbd: #52525b;
+  --kf-fg-secondary: #71717a;
+  --kf-fg-muted: #a1a1aa;
+  --kf-fg-dim: #c4c4cb;
+  --kf-success-fg: #3d6c00;
+
+  --kf-bar-track: #e4e4e7;
+  --kf-bar-inactive: rgba(212, 212, 216, 0.80);
+
+  --kf-orb1: rgba(212, 255, 77, 0.25);
+  --kf-orb2: rgba(139, 92, 246, 0.14);
+
+  --kf-pill-from: rgba(0, 0, 0, 0.08);
+  --kf-pill-to: rgba(0, 0, 0, 0.02);
+
+  --kf-vline: rgba(0, 0, 0, 0.10);
+
+  --kf-grid-line: rgba(0, 0, 0, 0.055);
 }
 
 @theme inline {
@@ -10,17 +123,159 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-display {
+  font-family: var(--font-syne), var(--font-geist-sans), system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--kf-accent);
+}
+
+/* —— custom range (Chrome / Safari / Firefox) —— */
+.kf-range {
+  --kf-range-pct: 50%;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    var(--kf-accent) 0%,
+    var(--kf-accent) var(--kf-range-pct),
+    color-mix(in oklab, var(--foreground) 12%, transparent) var(--kf-range-pct),
+    color-mix(in oklab, var(--foreground) 12%, transparent) 100%
+  );
+  outline: none;
+}
+
+.kf-range:focus-visible {
+  box-shadow: 0 0 0 3px var(--kf-accent-dim);
+}
+
+.kf-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--foreground);
+  border: 2px solid var(--kf-accent);
+  box-shadow: 0 0 0 4px var(--kf-accent-dim);
+  cursor: grab;
+}
+
+.kf-range::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+.kf-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--foreground);
+  border: 2px solid var(--kf-accent);
+  box-shadow: 0 0 0 4px var(--kf-accent-dim);
+  cursor: grab;
+}
+
+/* —— scrolling grid —— */
+@keyframes kf-grid-scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(56px);
+  }
+}
+
+.kf-grid {
+  pointer-events: none;
+  position: fixed;
+  inset: -56px;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--kf-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--kf-grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: kf-grid-scroll 10s linear infinite;
+  mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 40%,
+    black 30%,
+    transparent 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 40%,
+    black 30%,
+    transparent 80%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kf-grid {
+    animation: none;
+  }
+
+  .kf-toast-enter {
+    animation: none !important;
+  }
+
+  .kf-pulse {
+    animation: none !important;
+  }
+}
+
+/* —— brand gradient text —— */
+.kf-brand-text {
+  background: linear-gradient(to right, #d4ff4d, #bef264);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .kf-brand-text {
+  background: linear-gradient(to right, #4a7c00, #2f5200);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* —— toast —— */
+@keyframes kf-toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.kf-toast-enter {
+  animation: kf-toast-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* —— subtle live pulse on output refresh —— */
+@keyframes kf-live-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.kf-pulse {
+  animation: kf-live-pulse 1.6s ease-in-out infinite;
 }
